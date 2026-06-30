@@ -6,15 +6,25 @@
 <title>برای مهرنوش 💓🎀</title>
 
 <style>
-/* (همه استایل‌های خودت بدون تغییر) */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(#0b0f1a,#05070f);
+  overflow-x: hidden;
+}
+
 body{
-  margin:0;
   font-family:sans-serif;
-  background:linear-gradient(#0b0f1a,#05070f);
   color:white;
   text-align:center;
+  min-height:100vh;
   overflow:hidden;
+  -webkit-tap-highlight-color: transparent;
+  background-attachment: fixed;
 }
+
+/* ستاره‌ها */
 .star{
   position:absolute;
   width:2px;
@@ -26,6 +36,8 @@ body{
   from{opacity:0.2;}
   to{opacity:1;}
 }
+
+/* ماه */
 .moon{
   position:absolute;
   top:40px;
@@ -36,6 +48,8 @@ body{
   border-radius:50%;
   box-shadow:0 0 40px #fff;
 }
+
+/* قلب‌ها */
 .heart{
   position:absolute;
   color:#ff4d6d;
@@ -46,6 +60,8 @@ body{
   from{transform:translateY(0);opacity:1;}
   to{transform:translateY(-200px);opacity:0;}
 }
+
+/* کانتینر */
 .container{
   position:absolute;
   top:50%;
@@ -53,7 +69,10 @@ body{
   transform:translate(-50%,-50%);
   width:90%;
 }
+
 .hidden{display:none;}
+
+/* دکمه‌ها */
 button{
   padding:10px 20px;
   margin:8px;
@@ -61,8 +80,11 @@ button{
   border-radius:10px;
   cursor:pointer;
 }
+
 .yes{background:#ff4d6d;color:white;}
 .no{background:#444;color:white;position:absolute;}
+
+/* گزینه‌ها */
 .option{
   border:1px solid white;
   padding:10px;
@@ -71,7 +93,10 @@ button{
   border-radius:10px;
   cursor:pointer;
 }
+
 .selected{background:#ff4d6d;}
+
+/* میز */
 .table{
   width:260px;
   height:130px;
@@ -80,6 +105,7 @@ button{
   border-radius:15px;
   position:relative;
 }
+
 .plate{
   width:50px;
   height:50px;
@@ -88,8 +114,11 @@ button{
   position:absolute;
   top:40px;
 }
+
 .left{left:25px;}
 .right{right:25px;}
+
+/* شمع */
 .candle{
   width:12px;
   height:50px;
@@ -99,6 +128,7 @@ button{
   left:50%;
   transform:translateX(-50%);
 }
+
 .flame{
   width:12px;
   height:12px;
@@ -108,15 +138,19 @@ button{
   top:-12px;
   animation:flicker .2s infinite;
 }
+
 @keyframes flicker{
   0%{transform:scale(1);}
   50%{transform:scale(1.3);}
   100%{transform:scale(1);}
 }
+
+/* گل */
 .flower{
   font-size:60px;
   animation: pop 1s ease;
 }
+
 @keyframes pop{
   from{transform:scale(0);}
   to{transform:scale(1);}
@@ -128,8 +162,8 @@ button{
 
 <div class="moon"></div>
 
-<!-- ✅ فقط اینجا preload و muted اضافه شد -->
-<audio id="music" src="music.mp3" loop preload="auto" muted></audio>
+<!-- موزیک -->
+<audio id="music" src="music.mp3" loop preload="auto"></audio>
 
 <!-- مرحله 1 -->
 <div class="container" id="step1">
@@ -138,7 +172,7 @@ button{
 <button class="no" id="noBtn">NO 😈</button>
 </div>
 
-<!-- بقیه کد کاملاً همون خودت -->
+<!-- مرحله 2 -->
 <div class="container hidden" id="step2">
 <h2>چه استایلی؟ 👗</h2>
 <div class="option" onclick="select(this,'dress','رسمی')">رسمی</div>
@@ -149,6 +183,7 @@ button{
 <button class="yes" onclick="next(3)">ادامه</button>
 </div>
 
+<!-- مرحله 3 -->
 <div class="container hidden" id="step3">
 <h2>حال و هوای دیت؟ 😏</h2>
 <div class="option" onclick="select(this,'mood','رمانتیک')">رمانتیک ❤️</div>
@@ -159,16 +194,18 @@ button{
 <button class="yes" onclick="next(4)">ادامه</button>
 </div>
 
+<!-- مرحله 4 -->
 <div class="container hidden" id="step4">
 <h2>ساعت شام؟ 🍽️</h2>
-<div class="option" onclick="select(this,'time','20')">🇩🇪 20:00 / 🇮🇷 21:30</div>
-<div class="option" onclick="select(this,'time','21')">🇩🇪 21:00 / 🇮🇷 22:30</div>
-<div class="option" onclick="select(this,'time','22')">🇩🇪 22:00 / 🇮🇷 23:30</div>
+<div class="option" onclick="select(this,'time','20')">20:00</div>
+<div class="option" onclick="select(this,'time','21')">21:00</div>
+<div class="option" onclick="select(this,'time','22')">22:00</div>
 <br>
 <button onclick="back(3)">⬅️</button>
 <button class="yes" onclick="next(5)">ادامه</button>
 </div>
 
+<!-- مرحله 5 -->
 <div class="container hidden" id="step5">
 <div class="table">
 <div class="plate left"></div>
@@ -176,13 +213,14 @@ button{
 <div class="candle"><div class="flame"></div></div>
 </div>
 
-<h2>دوستت دارم قشنگم 💓🎀</h2>
+<h2>دوستت دارم 💓🎀</h2>
 <button onclick="finish()">تایید ❤️</button>
 </div>
 
+<!-- مرحله 6 -->
 <div class="container hidden" id="step6">
 <div class="flower">🌹</div>
-<h2>سورپرایز برای تو 💖</h2>
+<h2>سورپرایز 💖</h2>
 <p id="result"></p>
 <button onclick="download()">دانلود 📥</button>
 </div>
@@ -191,15 +229,12 @@ button{
 let answers={};
 const music=document.getElementById("music");
 
-/* ✅ autoplay واقعی بدون باگ */
-window.addEventListener("load",()=>{
-  music.play().then(()=>{
-    music.muted=false; // بعد پلی، صدا باز میشه
-    music.volume=0.5;
-  }).catch(()=>{});
-});
+/* موزیک (باگ iOS حل شده) */
+window.addEventListener("click",()=>{
+  music.play().catch(()=>{});
+},{once:true});
 
-/* ستاره */
+/* ستاره‌ها */
 for(let i=0;i<120;i++){
   let s=document.createElement("div");
   s.className="star";
@@ -208,13 +243,13 @@ for(let i=0;i<120;i++){
   document.body.appendChild(s);
 }
 
-/* ❗ فقط اینجا یه خط اضافه شد (unmute) */
+/* مرحله‌ها */
 function next(n){
 
+  document.querySelectorAll(".container").forEach(e=>e.classList.add("hidden"));
+  document.getElementById("step"+n).classList.remove("hidden");
+
   if(n==2){
-    music.muted=false;
-    music.play();
-    
     for(let i=0;i<15;i++){
       let h=document.createElement("div");
       h.className="heart";
@@ -225,9 +260,6 @@ function next(n){
       setTimeout(()=>h.remove(),2000);
     }
   }
-
-  document.querySelectorAll(".container").forEach(e=>e.classList.add("hidden"));
-  document.getElementById("step"+n).classList.remove("hidden");
 }
 
 function back(n){ next(n); }
@@ -238,18 +270,21 @@ el.classList.add("selected");
 answers[key]=val;
 }
 
+/* دکمه NO فرار کنه */
 let no=document.getElementById("noBtn");
 no.addEventListener("mouseover",()=>{
 no.style.top=Math.random()*80+"%";
 no.style.left=Math.random()*80+"%";
 });
 
+/* پایان */
 function finish(){
 next(6);
 document.getElementById("result").innerHTML=
 "استایل: "+answers.dress+"<br>حال و هوا: "+answers.mood+"<br>زمان: "+answers.time;
 }
 
+/* دانلود */
 function download(){
 let text="Dress: "+answers.dress+"\nMood: "+answers.mood+"\nTime: "+answers.time;
 let blob=new Blob([text],{type:"text/plain"});
@@ -262,4 +297,3 @@ a.click();
 
 </body>
 </html>
-
